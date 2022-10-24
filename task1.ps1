@@ -18,14 +18,20 @@ function is_valid_mask_IPv4 ($network_mask) {
     $mask_pattern = ('^((({0})\.0\.0\.0)|' -f $valid_bytes) + ('(255\.({0})\.0\.0)|' -f $valid_bytes) + 
     ('(255\.255\.({0})\.0)|' -f $valid_bytes) + ('(255\.255\.255\.({0})))$' -f $valid_bytes)
     #We consider network mask 0.0.0.0 and 255.255.255.255 are valid
-    return $network_mask -match $mask_pattern
+    return ($network_mask -match $mask_pattern -or (($network_mask -ge '0') -and ($network_mask -le '32')))
 }
 
 if (!(is_valid_mask_IPv4 -network_mask $network_mask)) { 
     throw "Network mask is incorrect. The script will be aborted."
 }
 
-# Write-Host "IP address 1 is incorrect. The script will be aborted." -ForegroundColor Red
-
 Write-Host "IP address 1 is $ip_address_1 and second is $ip_address_2. Network mask is $network_mask" -ForegroundColor Yellow
-  
+$ip1 = [ipaddress] $ip_address_1
+$ip2 = [ipaddress] $ip_address_2
+$mask = [ipaddress] $network_mask
+if (($ip1.address -band $mask.address) -eq ($ip2.address -band $mask.address)) {
+    Write-Host "yes" -ForegroundColor Green
+}
+else {
+    Write-Host "no" -ForegroundColor Yellow
+}
