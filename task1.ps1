@@ -9,7 +9,7 @@ param (
     [ValidateScript({ $_ -match "^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$" -and [bool]($_ -as [ipaddress]) })]
     [Parameter(Mandatory, ValueFromPipelineByPropertyName = $true)]
     [string] $ip_address_2,
-    #For demonstration purposes, network mask validation is moved to function
+    #Network mask validation is moved to function
     [Parameter(Mandatory, ValueFromPipelineByPropertyName = $true)]
     [string] $network_mask
 )
@@ -25,7 +25,7 @@ if (!(is_valid_mask_IPv4 -network_mask $network_mask)) {
     throw "Network mask is incorrect. The script will be aborted."
 }
 
-Write-Host "IP address 1 is $ip_address_1 and second is $ip_address_2. Network mask is $network_mask" -ForegroundColor Yellow
+#Converting string params to IPAddress Object for comparison
 $ip1 = [ipaddress] $ip_address_1
 $ip2 = [ipaddress] $ip_address_2
 $mask = [ipaddress] $network_mask
