@@ -17,7 +17,6 @@ if [[ "$1" == -h || "$1" == --help ]]; then
 fi
 
 path="$(dirname "${1}")"
-testName=$(cat $1 | awk '/]/{testName=sub("\]","",$0);print($2" "$3)}')
 cat $1 | awk '#AWK PROGRAMM for parsing txt to json
 #IN Begin sections we initialize our counters, FS - field separator and RS - line separator
 BEGIN{count=0;successNumber=0;failNumber=0;testBlock=1;FS=" ";RS="\n"}
