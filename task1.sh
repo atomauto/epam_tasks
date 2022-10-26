@@ -26,7 +26,7 @@ path="$(dirname "${1}")"
 #Preparing file for awk (remove "" and commas inside "" and extra spaces)
 #NOTICE: it's extra modification, which isn't mentioned in task, in IRL I would communicate about it with Department head
 cat $1 | sed ':a;s/^\(\([^"]*,\?\|"[^",]*",\?\)*"[^",]*\),/\1 /;ta;s/  */ /g' | tr -d "\"" >$path/accounts_temp.csv
-#Update colum name and generate email by pattern
+#Update column name and generate email by pattern
 cat $path/accounts_temp.csv | awk '
             BEGIN{
                 FS=","
