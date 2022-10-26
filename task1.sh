@@ -25,15 +25,33 @@ fi
 path="$(dirname "${1}")"
 #Preparing file for awk (remove "" and commas inside "" and extra spaces)
 #NOTICE: it's extra modification, which isn't mentioned in task, in IRL I would communicate about it with Department head
-cat $1 | sed ':a;s/^\(\([^"]*,\?\|"[^",]*",\?\)*"[^",]*\),/\1 /;ta;s/  */ /g' | tr -d "\"" >$path/accounts_temp.csv\
+cat $1 | sed ':a;s/^\(\([^"]*,\?\|"[^",]*",\?\)*"[^",]*\),/\1 /;ta;s/  */ /g' | tr -d "\"" >$path/accounts_temp.csv
 #Update colum name and generate email by pattern
-cat $path/accounts_temp.csv | awk 'BEGIN{FS=","; OFS=","} 
-            {$3=tolower($3);
-            split($3,arr," ");
+cat $path/accounts_temp.csv | awk '
+            BEGIN{
+                FS=","
+                OFS=","
+                marker=777} 
+            {
+            $3=tolower($3)
+            split($3,arr," ")
             for(x in arr)
-            sub(arr[x],toupper(substr(arr[x],1,1))substr(arr[x],2),$3);
-            $5=substr(arr[1],1,1) arr[2] "@abc.com"} {print}' >$path/accounts_new.csv
-#Adding location_id for duplicate emails
+            sub(arr[x],toupper(substr(arr[x],1,1))substr(arr[x],2),$3)
+            $5=substr(arr[1],1,1) arr[2] "@abc.com"
+            if (names[$3] == marker) {
+                sub("@",$2"@",$5)
+                sub("@",location[$3]"@",email[$3])
+            }
+            names[$3] = marker
+            location[$3] = $2
+            email[$3] = $5
+            }
+            ' >$path/accounts_new.csv
+            #                 print("DEBUG " location[$3]"@ "email[$3])
+            # ' >$path/accounts_new.csv
 
+#Adding location_id for duplicate emails
+# cat $path/accounts_new.csv >$path/accounts_temp.csv
+# duplicate_emails=$(cat $path/accounts_temp.csv | awk -F , '{print $5}' | uniq -d)
+# cat $path/accounts_temp.csv | awk -F , 'NR == 1 {p=$5; next} p == $5 {$5=substr($3,"@") $2 $5} {p=$5} {print}'
 rm $path/accounts_temp.csv
-#$3=toupper(substr($3,1,1))tolower(substr($3,2))
