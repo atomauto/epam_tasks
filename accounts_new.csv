@@ -1,34 +1,34 @@
-"id","location_id","name","title","email","department"
-"1","1","Susan Houston","Director of Services","susanh@abc.com",""
-"2","1","Christina Gonzalez","Director","christinag@abc.com",""
-"3","2","Brenda Brown","Director, Second Career Services","brendab@abc.com",""
-"4","3","Howard Lader","Manager, Senior Counseling","howardl@abc.com",""
-"5","4","Kimberly Pesavento","Commercial director","kimberlyp@abc.com",""
-"6","5","Joe Bloom","Financial Empowerment Programs Program Director","joeb@abc.com",""
-"7","6","Peter Olson","Director","petero@abc.com",""
-"8","6","Bart Charlow","Executive Director","bartc6@abc.com",""
-"9","7","Bart Charlow","Executive Director","bartc7@abc.com",""
-"10","7","Barbara Kalt","Director","barbarak@abc.com",""
-"11","8","Marilyn Baker-Venturini","Director","marilynb@abc.com",""
-"12","8","Graciela Hernandez","Assistant Manager","gracielah@abc.com",""
-"13","8","Julie Avelino","Assessment Specialist","juliea@abc.com",""
-"14","9","Dave Genesy","Library Director","daveg9@abc.com",""
-"15","9","Maria Kramer","Library Divisions Manager","mariak9@abc.com",""
-"16","10","Dave Genesy","Tester","daveg10@abc.com",""
-"17","10","Maria Kramer","Library Division Manager","mariak10@abc.com",""
-"18","11","Dave Genesy","Head of office","daveg11@abc.com",""
-"19","11","Elizabeth Meeks","Branch Manager","elizabethm@abc.com",""
-"20","12","Kathy Endaya","Director","kathye@abc.com",""
-"21","13","Dave Genesy","Library Director","daveg13@abc.com",""
-"22","14","Andres Espinoza","Manager, Commanding Officer","andrese@abc.com",""
-"23","15","Jack Phillips","Administrator","jackp@abc.com",""
-"24","16","James Lee","Commanding Officer","jamesl@abc.com",""
-"25","17","Kenneth Gibson","Tester","kennethg@abc.com",""
-"26","18","Sharon Petersen","Administrator","sharonp18@abc.com",""
-"27","19","Sharon Petersen","Administrator","sharonp19@abc.com",""
-"28","21","Moncef Salah","Tester","moncefs@abc.com","Office of Innovation"
-"29","22","Suzanne Badenhoop","Tester","suzanneb@abc.com","Referrals"
-"30","20","Sean Houston","Director of new Services","seanh@abc.com",""
-"31","8","David Genesy","Account Manager","davidg@abc.com",""
-"32","8","Elizabeth Feeney","CEO","elizabethf@abc.com","Operations"
-"33","8","Erika Meeks","Tester","erikam@abc.com","Operations"
+id,location_id,Name,title,n@abc.com,department
+1,1,Susan Houston,Director of Services,shouston@abc.com,
+2,1,Christina Gonzalez,Director,cgonzalez@abc.com,
+3,2,Brenda Brown,Director Second Career Services,bbrown@abc.com,
+4,3,Howard Lader,Manager Senior Counseling,hlader@abc.com,
+5,4,Kimberly Pesavento,Commercial director,kpesavento@abc.com,
+6,5,Joe Bloom,Financial Empowerment Programs Program Director,jbloom@abc.com,
+7,6,Peter Olson,Director,polson@abc.com,
+8,6,Bart Charlow,Executive Director,bcharlow@abc.com,
+9,7,Bart Charlow,Executive Director,bcharlow7@abc.com,
+10,7,Barbara Kalt,Director,bkalt@abc.com,
+11,8,Marilyn Baker-venturini,Director,mbaker-venturini@abc.com,
+12,8,Graciela Hernandez,Assistant Manager,ghernandez@abc.com,
+13,8,Julie Avelino,Assessment Specialist,javelino@abc.com,
+14,9,Dave Genesy,Library Director,dgenesy@abc.com,
+15,9,Maria Kramer,Library Divisions Manager,mkramer@abc.com,
+16,10,Dave Genesy,Tester,dgenesy10@abc.com,
+17,10,Maria Kramer,Library Division Manager,mkramer10@abc.com,
+18,11,Dave Genesy,Head of office,dgenesy11@abc.com,
+19,11,Elizabeth Meeks,Branch Manager,emeeks@abc.com,
+20,12,Kathy Endaya,Director,kendaya@abc.com,
+21,13,Dave Genesy,Library Director,dgenesy13@abc.com,
+22,14,Andres Espinoza,Manager Commanding Officer,aespinoza@abc.com,
+23,15,Jack Phillips,Administrator,jphillips@abc.com,
+24,16,James Lee,Commanding Officer,jlee@abc.com,
+25,17,Kenneth Gibson,Tester,kgibson@abc.com,
+26,18,Sharon Petersen,Administrator,spetersen@abc.com,
+27,19,Sharon Petersen,Administrator,spetersen19@abc.com,
+28,21,Moncef Salah,Tester,msalah@abc.com,Office of Innovation
+29,22,Suzanne Badenhoop,Tester,sbadenhoop@abc.com,Referrals
+30,20,Sean Houston,Director of new Services,shouston@abc.com,
+31,8,David Genesy,Account Manager,dgenesy@abc.com,
+32,8,Elizabeth Feeney,CEO,efeeney@abc.com,Operations
+33,8,Erika Meeks,Tester,emeeks@abc.com,Operations

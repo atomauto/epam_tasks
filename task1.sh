@@ -2,9 +2,7 @@
 #We assume proper csv file, without line breaks and special symbols inside column values
 #For more complex and general cases better use programming language with built-in csv parsing library
 #Also according to script logic first line is a header
-#AWK has problems with "", so I've made two solutions
-#First solution is this file (strict study solution "task1.sh", where we remove quotes and commas inside column values)
-#Second solition is inside file "task1_irl.sh" (real-life solution, where we use google and extra library)
+#AWK has problems with "", so we remove quotes and commas inside column values)
 
 #Help message for user
 function usage() {
@@ -45,11 +43,32 @@ cat $path/accounts_temp.csv | awk '
             names[$3] = marker
             location[$3] = $2
             email[$3] = $5
+            print
             }
             ' >$path/accounts_new.csv
-            #                 print("DEBUG " location[$3]"@ "email[$3])
-            # ' >$path/accounts_new.csv
 
+cat $path/accounts_temp.csv | awk '
+            BEGIN{
+                FS=","
+                OFS=","
+                marker=777} 
+            {
+            $3=tolower($3)
+            split($3,arr," ")
+            for(x in arr)
+            sub(arr[x],toupper(substr(arr[x],1,1))substr(arr[x],2),$3)
+            $5=substr(arr[1],1,1) arr[2] "@abc.com"
+            if (names[$3] == marker) {
+                sub("@",$2"@",$5)
+                sub("@",location[$3]"@",email[$3])
+            }
+            names[$3] = marker
+            location[$3] = $2
+            email[$3] = $5
+            print
+            }
+            ' >$path/accounts_new.csv
+            
 #Adding location_id for duplicate emails
 # cat $path/accounts_new.csv >$path/accounts_temp.csv
 # duplicate_emails=$(cat $path/accounts_temp.csv | awk -F , '{print $5}' | uniq -d)
