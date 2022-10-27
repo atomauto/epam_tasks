@@ -47,28 +47,6 @@ cat $path/accounts_temp.csv | awk '
             }
             ' >$path/accounts_new.csv
 
-cat $path/accounts_temp.csv | awk '
-            BEGIN{
-                FS=","
-                OFS=","
-                marker=777} 
-            {
-            $3=tolower($3)
-            split($3,arr," ")
-            for(x in arr)
-            sub(arr[x],toupper(substr(arr[x],1,1))substr(arr[x],2),$3)
-            $5=substr(arr[1],1,1) arr[2] "@abc.com"
-            if (names[$3] == marker) {
-                sub("@",$2"@",$5)
-                sub("@",location[$3]"@",email[$3])
-            }
-            names[$3] = marker
-            location[$3] = $2
-            email[$3] = $5
-            print
-            }
-            ' >$path/accounts_new.csv
-            
 #Adding location_id for duplicate emails
 # cat $path/accounts_new.csv >$path/accounts_temp.csv
 # duplicate_emails=$(cat $path/accounts_temp.csv | awk -F , '{print $5}' | uniq -d)
